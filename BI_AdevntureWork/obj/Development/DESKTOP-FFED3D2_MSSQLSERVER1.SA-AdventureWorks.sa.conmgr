@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-FFED3D2_MSSQLSERVER1.SA-AdventureWorks.sa"
+  DTS:DTSID="{4C0985F5-593C-47D4-812B-AD6B07593A6E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-FFED3D2\MSSQLSERVER1;User ID=sa;Initial Catalog=SA-AdventureWorks;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-BI_AdevntureWork-{4C0985F5-593C-47D4-812B-AD6B07593A6E}DESKTOP-FFED3D2\MSSQLSERVER1.SA-AdventureWorks.sa;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA31LwF/dclUyLIfGQfVRIzwAAAAACAAAAAAAQZgAAAAEAACAAAACTVA33tYdc+gw5CeWv55rkWLKT4ZOwsfFOwvC0DMQf/QAAAAAOgAAAAAIAACAAAACe7mcxeAMIErkJm9/u1OuMQkt3qhYfZZrgA2EriWTuSXAAAABee+AtAqd9krFrGUmlhVRM7MNEr7SzCjByx4puCt/yeBkLwaO9jwocxxx3FqlgXy67bdIR6DfpTJKtuvm6POzaRfBUsOstaskF3Ej+Iryw7jS1SALjfjpCafpI+l22wVaOxIXq5n24Dn5h4hp88rwoQAAAAP60IZEiEJO/47AvjgQz+yFG2MBLpZ+CR0131H4xVE4sYrB1U3/LdbA22WwhKZ3AuHwjGqYwnrXpA2OKQtep8oA=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
