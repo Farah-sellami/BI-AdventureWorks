@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="dimensions"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{AF1E1FA3-F477-4F7F-AADF-13817AD1F2B9}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{B712834F-5150-434B-8111-7AC370B6AE93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2009,6 +2009,970 @@
               endId="Package\Load_DimEmployee\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
               startId="Package\Load_DimEmployee\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_DimEmployee 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6832a9dd-4683-4fd6-8df0-dd41b0034d36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_DimEmployee 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load_DimEmployee 1\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données].Columns[BirthDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="BirthDate"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BirthDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BirthDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_DimEmployee 1\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DimEmployee1]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_DimEmployee 1\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{230746B9-FFFC-4297-B465-E07AA1558055}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-FFED3D2_MSSQLSERVER1.DWAdventureWorks.sa]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NationalIDNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="NationalIDNumber"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NationalIDNumber]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NationalIDNumber]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[LoginID]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="LoginID"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LoginID]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[LoginID]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JobTitle]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[JobTitle]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[MaritalStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="MaritalStatus"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[MaritalStatus]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Gender]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[HireDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[HireDate]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[VacationHours]"
+                      cachedDataType="i2"
+                      cachedName="VacationHours"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[VacationHours]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[VacationHours]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[SickLeaveHours]"
+                      cachedDataType="i2"
+                      cachedName="SickLeaveHours"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SickLeaveHours]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[SickLeaveHours]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[rowguid]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CurrentFlag]"
+                      cachedDataType="bool"
+                      cachedName="CurrentFlag"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CurrentFlag]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CurrentFlag]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[BirthDate]"
+                      lineageId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstName]"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LastName]"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PersonType]"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[PersonType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      name="LoginID" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[HireDate]"
+                      dataType="dbTimeStamp"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[VacationHours]"
+                      dataType="i2"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SickLeaveHours]"
+                      dataType="i2"
+                      name="SickLeaveHours" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CurrentFlag]"
+                      dataType="bool"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_DimEmployee 1\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_DimEmployee 1\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Person].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Person].[Person]) [refTable]
+where [refTable].[BusinessEntityID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BusinessEntityID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PersonType" dataType="DT_WSTR" length="2" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NameStyle" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Title" dataType="DT_WSTR" length="8" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MiddleName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Suffix" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EmailPromotion" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AdditionalContactInfo" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Demographics" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="rowguid" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_DimEmployee 1\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="{D117E65D-EF2A-4FDF-9C00-DA955BE5A1C4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-FFED3D2_MSSQLSERVER1.AdventureWorks2019.sa]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">BusinessEntityID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">FirstName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">LastName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[PersonType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="2"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[PersonType]"
+                      name="PersonType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">PersonType</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_DimEmployee 1\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[EmployeeSA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_DimEmployee 1\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{4C0985F5-593C-47D4-812B-AD6B07593A6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-FFED3D2_MSSQLSERVER1.SA-AdventureWorks.sa]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[NationalIDNumber]"
+                      length="15"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[NationalIDNumber]"
+                      name="NationalIDNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[LoginID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[LoginID]"
+                      length="256"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[LoginID]"
+                      name="LoginID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[JobTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[JobTitle]"
+                      length="50"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[JobTitle]"
+                      name="JobTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BirthDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BirthDate]"
+                      length="10"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[MaritalStatus]"
+                      length="1"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[MaritalStatus]"
+                      name="MaritalStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[HireDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[HireDate]"
+                      length="10"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[VacationHours]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[VacationHours]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[VacationHours]"
+                      name="VacationHours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[SickLeaveHours]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[SickLeaveHours]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[SickLeaveHours]"
+                      name="SickLeaveHours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[rowguid]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CurrentFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[CurrentFlag]"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[CurrentFlag]"
+                      name="CurrentFlag"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      name="LoginID" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[OrganizationNode]"
+                      dataType="bytes"
+                      length="892"
+                      name="OrganizationNode" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[OrganizationLevel]"
+                      dataType="i2"
+                      name="OrganizationLevel" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[BirthDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[SalariedFlag]"
+                      dataType="bool"
+                      name="SalariedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[VacationHours]"
+                      dataType="i2"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[SickLeaveHours]"
+                      dataType="i2"
+                      name="SickLeaveHours" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[CurrentFlag]"
+                      dataType="bool"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[NationalIDNumber]"
+                      name="NationalIDNumber" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[LoginID]"
+                      name="LoginID" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[JobTitle]"
+                      name="JobTitle" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BirthDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[MaritalStatus]"
+                      name="MaritalStatus" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[VacationHours]"
+                      dataType="i2"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[VacationHours]"
+                      name="VacationHours" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[SickLeaveHours]"
+                      dataType="i2"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[SickLeaveHours]"
+                      name="SickLeaveHours" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[CurrentFlag]"
+                      dataType="bool"
+                      lineageId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[CurrentFlag]"
+                      name="CurrentFlag" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load_DimEmployee 1.Paths[Sortie de conversion de données]"
+              endId="Package\Load_DimEmployee 1\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de conversion de données"
+              startId="Package\Load_DimEmployee 1\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\Load_DimEmployee 1.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Load_DimEmployee 1\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Load_DimEmployee 1\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Load_DimEmployee 1.Paths[Sortie de source OLE DB]"
+              endId="Package\Load_DimEmployee 1\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\Load_DimEmployee 1\Source OLE DB.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -4146,42 +5110,312 @@ where [refTable].[ProductCategoryID] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Load_DimEmployee"
-          TopLeft="58.5714286961118,64.999999943025" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Load_DimDepartment"
-          TopLeft="89.2857144757802,188.117646893931" />
-        <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Load_DimSalesTerritory"
-          TopLeft="55.5000001064368,284.617646814166" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Load_DimProduct"
-          TopLeft="265.714286279922,61.1764705346117" />
-        <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\Load_DimSubCatProduct"
-          TopLeft="362.142857913764,159.058823389991" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Load_DimCatProduct"
           TopLeft="358.571429334733,243.176470375082" />
         <NodeLayout
-          Size="200,41.6"
-          Id="Package\Tâche de flux de données"
-          TopLeft="5.5,5.5" />
-        <NodeLayout
           Size="147.2,41.6"
           Id="Package\Load_DimDate"
           TopLeft="299.285714922815,318.117646779981" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Load_DimDepartment"
+          TopLeft="89.2857144757802,188.117646893931" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load_DimEmployee"
+          TopLeft="58.5714286961118,64.999999943025" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Load_DimProduct"
+          TopLeft="265.714286279922,61.1764705346117" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Load_DimSalesTerritory"
+          TopLeft="55.5000001064368,284.617646814166" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Load_DimSubCatProduct"
+          TopLeft="362.142857913764,159.058823389991" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Tâche de flux de données"
+          TopLeft="30.5000000532185,403.147058474976" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load_DimEmployee 1"
+          TopLeft="30.5000000532185,504.747058474976" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Load_DimCatProduct">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load_DimCatProduct\Source OLE DB"
+          TopLeft="442.999993398786,110.999998345971" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load_DimCatProduct\Destination OLE DB"
+          TopLeft="387.99999421835,300.99999551475" />
+        <EdgeLayout
+          Id="Package\Load_DimCatProduct.Paths[Sortie de source OLE DB]"
+          TopLeft="517.799993398786,152.599998345971">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.5999991804361,148.399997168779"
+              Start="0,0"
+              End="-44.5999991804361,140.899997168779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.1999985843897"
+                    Point2="0,74.1999985843897"
+                    Point3="-4,74.1999985843897" />
+                  <mssgle:LineSegment
+                    End="-40.5999991804361,74.1999985843897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.5999991804361,74.1999985843897"
+                    Point2="-44.5999991804361,74.1999985843897"
+                    Point3="-44.5999991804361,78.1999985843897" />
+                  <mssgle:LineSegment
+                    End="-44.5999991804361,140.899997168779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimCatProduct\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimCatProduct\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load_DimDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load_DimDate\Source OLE DB"
+          TopLeft="477.999992877245,145.99999782443" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load_DimDate\Destination OLE DB"
+          TopLeft="519.999992251396,380.999994322658" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Load_DimDate\Conversion de données"
+          TopLeft="541.999991923571,258.999996140599" />
+        <EdgeLayout
+          Id="Package\Load_DimDate.Paths[Sortie de source OLE DB]"
+          TopLeft="552.799992877245,187.59999782443">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.1999990463257,71.3999983161688"
+              Start="0,0"
+              End="83.1999990463257,63.8999983161688">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6999991580844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6999991580844"
+                    Point2="0,35.6999991580844"
+                    Point3="4,35.6999991580844" />
+                  <mssgle:LineSegment
+                    End="79.1999990463257,35.6999991580844" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.1999990463257,35.6999991580844"
+                    Point2="83.1999990463257,35.6999991580844"
+                    Point3="83.1999990463257,39.6999991580844" />
+                  <mssgle:LineSegment
+                    End="83.1999990463257,63.8999983161688" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_DimDate.Paths[Sortie de conversion de données]"
+          TopLeft="635.999991923571,300.599996140599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.7999996721744,80.3999981820584"
+              Start="0,0"
+              End="-30.7999996721744,72.8999981820584">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1999990910292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.1999990910292"
+                    Point2="0,40.1999990910292"
+                    Point3="-4,40.1999990910292" />
+                  <mssgle:LineSegment
+                    End="-26.7999996721744,40.1999990910292" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.7999996721744,40.1999990910292"
+                    Point2="-30.7999996721744,40.1999990910292"
+                    Point3="-30.7999996721744,44.1999990910292" />
+                  <mssgle:LineSegment
+                    End="-30.7999996721744,72.8999981820584" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimDate\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimDate\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load_DimDepartment">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load_DimDepartment\Source OLE DB"
+          TopLeft="112.999998316169,119.999998211861" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load_DimDepartment\Destination OLE DB"
+          TopLeft="112.999998316169,376.999994382262" />
+        <EdgeLayout
+          Id="Package\Load_DimDepartment.Paths[Sortie de source OLE DB]"
+          TopLeft="187.799998316169,161.599998211861">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.4,215.399996170402"
+              Start="0,0"
+              End="10.4,207.899996170402">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.699998085201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,103.699998085201"
+                    Point2="0,107.699998085201"
+                    Point3="4,107.699998085201" />
+                  <mssgle:LineSegment
+                    End="6.40000000000003,107.699998085201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.40000000000003,107.699998085201"
+                    Point2="10.4,107.699998085201"
+                    Point3="10.4,111.699998085201" />
+                  <mssgle:LineSegment
+                    End="10.4,207.899996170402" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimDepartment\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_DimDepartment\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load_DimEmployee">
     <LayoutInfo>
@@ -4191,6 +5425,10 @@ where [refTable].[ProductCategoryID] = ?</property>
           Size="149.6,41.6"
           Id="Package\Load_DimEmployee\Source OLE DB"
           TopLeft="47.1428572432119,54.2941175994679" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load_DimEmployee\Destination OLE DB"
+          TopLeft="177.142857519948,326.52941147849" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Load_DimEmployee\Conversion de données"
@@ -4229,10 +5467,6 @@ where [refTable].[ProductCategoryID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load_DimEmployee\Destination OLE DB"
-          TopLeft="177.142857519948,326.52941147849" />
         <EdgeLayout
           Id="Package\Load_DimEmployee.Paths[Sortie de conversion de données]"
           TopLeft="204.714285949967,228.188235130566">
@@ -4296,132 +5530,6 @@ where [refTable].[ProductCategoryID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load_DimDepartment">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load_DimDepartment\Source OLE DB"
-          TopLeft="112.999998316169,119.999998211861" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load_DimDepartment\Destination OLE DB"
-          TopLeft="112.999998316169,376.999994382262" />
-        <EdgeLayout
-          Id="Package\Load_DimDepartment.Paths[Sortie de source OLE DB]"
-          TopLeft="187.799998316169,161.599998211861">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.4,215.399996170402"
-              Start="0,0"
-              End="10.4,207.899996170402">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,103.699998085201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,103.699998085201"
-                    Point2="0,107.699998085201"
-                    Point3="4,107.699998085201" />
-                  <mssgle:LineSegment
-                    End="6.40000000000003,107.699998085201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.40000000000003,107.699998085201"
-                    Point2="10.4,107.699998085201"
-                    Point3="10.4,111.699998085201" />
-                  <mssgle:LineSegment
-                    End="10.4,207.899996170402" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_DimDepartment\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_DimDepartment\Destination OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load_DimSalesTerritory">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load_DimSalesTerritory\Source OLE DB"
-          TopLeft="107.999998390675,141.999997884035" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load_DimSalesTerritory\Destination OLE DB"
-          TopLeft="154.99999769032,377.999994367361" />
-        <EdgeLayout
-          Id="Package\Load_DimSalesTerritory.Paths[Sortie de source OLE DB]"
-          TopLeft="182.799998390675,183.599997884035">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57.3999992996455,194.399996483326"
-              Start="0,0"
-              End="57.3999992996455,186.899996483326">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,93.199998241663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,93.199998241663"
-                    Point2="0,97.199998241663"
-                    Point3="4,97.199998241663" />
-                  <mssgle:LineSegment
-                    End="53.3999992996455,97.199998241663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="53.3999992996455,97.199998241663"
-                    Point2="57.3999992996455,97.199998241663"
-                    Point3="57.3999992996455,101.199998241663" />
-                  <mssgle:LineSegment
-                    End="57.3999992996455,186.899996483326" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <TaskHost
     design-time-name="Package\Load_DimProduct">
     <LayoutInfo>
@@ -4567,20 +5675,30 @@ where [refTable].[ProductCategoryID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimSalesTerritory\Source OLE DB">
+    design-time-name="Package\Load_DimProduct\Recherche 1">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CategorySA]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimSalesTerritory\Destination OLE DB">
+    design-time-name="Package\Load_DimProduct\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4611,7 +5729,7 @@ where [refTable].[ProductCategoryID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4621,38 +5739,78 @@ where [refTable].[ProductCategoryID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load_DimSalesTerritory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load_DimSalesTerritory\Source OLE DB"
+          TopLeft="107.999998390675,141.999997884035" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load_DimSalesTerritory\Destination OLE DB"
+          TopLeft="154.99999769032,377.999994367361" />
+        <EdgeLayout
+          Id="Package\Load_DimSalesTerritory.Paths[Sortie de source OLE DB]"
+          TopLeft="182.799998390675,183.599997884035">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.3999992996455,194.399996483326"
+              Start="0,0"
+              End="57.3999992996455,186.899996483326">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93.199998241663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93.199998241663"
+                    Point2="0,97.199998241663"
+                    Point3="4,97.199998241663" />
+                  <mssgle:LineSegment
+                    End="53.3999992996455,97.199998241663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.3999992996455,97.199998241663"
+                    Point2="57.3999992996455,97.199998241663"
+                    Point3="57.3999992996455,101.199998241663" />
+                  <mssgle:LineSegment
+                    End="57.3999992996455,186.899996483326" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimProduct\Recherche 1">
+    design-time-name="Package\Load_DimSalesTerritory\Destination OLE DB">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[CategorySA]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimProduct\Destination OLE DB">
+    design-time-name="Package\Load_DimSalesTerritory\Source OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4743,25 +5901,12 @@ where [refTable].[ProductCategoryID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimSubCatProduct\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load_DimSubCatProduct\Recherche">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4771,7 +5916,7 @@ where [refTable].[ProductCategoryID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4791,71 +5936,8 @@ where [refTable].[ProductCategoryID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load_DimCatProduct">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load_DimCatProduct\Source OLE DB"
-          TopLeft="442.999993398786,110.999998345971" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load_DimCatProduct\Destination OLE DB"
-          TopLeft="387.99999421835,300.99999551475" />
-        <EdgeLayout
-          Id="Package\Load_DimCatProduct.Paths[Sortie de source OLE DB]"
-          TopLeft="517.799993398786,152.599998345971">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44.5999991804361,148.399997168779"
-              Start="0,0"
-              End="-44.5999991804361,140.899997168779">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.1999985843897" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,70.1999985843897"
-                    Point2="0,74.1999985843897"
-                    Point3="-4,74.1999985843897" />
-                  <mssgle:LineSegment
-                    End="-40.5999991804361,74.1999985843897" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.5999991804361,74.1999985843897"
-                    Point2="-44.5999991804361,74.1999985843897"
-                    Point3="-44.5999991804361,78.1999985843897" />
-                  <mssgle:LineSegment
-                    End="-44.5999991804361,140.899997168779" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimCatProduct\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_DimCatProduct\Destination OLE DB">
+    design-time-name="Package\Load_DimSubCatProduct\Source OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4868,48 +5950,74 @@ where [refTable].[ProductCategoryID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load_DimDate">
+    design-time-name="Package\Load_DimEmployee 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
-          Id="Package\Load_DimDate\Source OLE DB"
-          TopLeft="477.999992877245,145.99999782443" />
+          Id="Package\Load_DimEmployee 1\Source OLE DB"
+          TopLeft="47.1428572432119,54.2941175994679" />
         <NodeLayout
           Size="170.4,41.6"
-          Id="Package\Load_DimDate\Destination OLE DB"
-          TopLeft="519.999992251396,380.999994322658" />
+          Id="Package\Load_DimEmployee 1\Destination OLE DB"
+          TopLeft="178.142857505047,465.529409407229" />
         <NodeLayout
           Size="188,41.6"
-          Id="Package\Load_DimDate\Conversion de données"
-          TopLeft="541.999991923571,258.999996140599" />
+          Id="Package\Load_DimEmployee 1\Conversion de données"
+          TopLeft="110.714285949967,186.588235130566" />
         <EdgeLayout
-          Id="Package\Load_DimDate.Paths[Sortie de source OLE DB]"
-          TopLeft="552.799992877245,187.59999782443">
+          Id="Package\Load_DimEmployee 1.Paths[Sortie de source OLE DB]"
+          TopLeft="121.942857243212,95.8941175994679">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="83.1999990463257,71.3999983161688"
+              EndConnector="82.7714287067555,90.6941175310979"
               Start="0,0"
-              End="83.1999990463257,63.8999983161688">
+              End="82.7714287067555,83.1941175310979">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.6999991580844" />
+                    End="0,41.3470587655489" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.6999991580844"
-                    Point2="0,35.6999991580844"
-                    Point3="4,35.6999991580844" />
+                    Point1="0,41.3470587655489"
+                    Point2="0,45.3470587655489"
+                    Point3="4,45.3470587655489" />
                   <mssgle:LineSegment
-                    End="79.1999990463257,35.6999991580844" />
+                    End="78.7714287067555,45.3470587655489" />
                   <mssgle:CubicBezierSegment
-                    Point1="79.1999990463257,35.6999991580844"
-                    Point2="83.1999990463257,35.6999991580844"
-                    Point3="83.1999990463257,39.6999991580844" />
+                    Point1="78.7714287067555,45.3470587655489"
+                    Point2="82.7714287067555,45.3470587655489"
+                    Point3="82.7714287067555,49.3470587655489" />
                   <mssgle:LineSegment
-                    End="83.1999990463257,63.8999983161688" />
+                    End="82.7714287067555,83.1941175310979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Load_DimEmployee 1\Recherche"
+          TopLeft="146.999997809529,304.999995455146" />
+        <EdgeLayout
+          Id="Package\Load_DimEmployee 1.Paths[Sortie de conversion de données]"
+          TopLeft="207.657141879748,228.188235130566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.8117603245798"
+              Start="0,0"
+              End="0,69.3117603245798">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.3117603245798" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4919,44 +6027,46 @@ where [refTable].[ProductCategoryID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load_DimDate.Paths[Sortie de conversion de données]"
-          TopLeft="635.999991923571,300.599996140599">
+          Id="Package\Load_DimEmployee 1.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="210.599997809529,346.599995455146">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.7999996721744,80.3999981820584"
+              EndConnector="52.7428596955175,118.929413952083"
               Start="0,0"
-              End="-30.7999996721744,72.8999981820584">
+              End="52.7428596955175,111.429413952083">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.1999990910292" />
+                    End="0,55.4647069760414" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.1999990910292"
-                    Point2="0,40.1999990910292"
-                    Point3="-4,40.1999990910292" />
+                    Point1="0,55.4647069760414"
+                    Point2="0,59.4647069760414"
+                    Point3="4,59.4647069760414" />
                   <mssgle:LineSegment
-                    End="-26.7999996721744,40.1999990910292" />
+                    End="48.7428596955175,59.4647069760414" />
                   <mssgle:CubicBezierSegment
-                    Point1="-26.7999996721744,40.1999990910292"
-                    Point2="-30.7999996721744,40.1999990910292"
-                    Point3="-30.7999996721744,44.1999990910292" />
+                    Point1="48.7428596955175,59.4647069760414"
+                    Point2="52.7428596955175,59.4647069760414"
+                    Point3="52.7428596955175,63.4647069760414" />
                   <mssgle:LineSegment
-                    End="-30.7999996721744,72.8999981820584" />
+                    End="52.7428596955175,111.429413952083" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-65.3055818709913,64.4647069760414,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimDate\Source OLE DB">
+    design-time-name="Package\Load_DimEmployee 1\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4969,15 +6079,25 @@ where [refTable].[ProductCategoryID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_DimDate\Destination OLE DB">
+    design-time-name="Package\Load_DimEmployee 1\Recherche">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Person].[Person]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

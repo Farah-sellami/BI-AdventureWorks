@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>BI_AdevntureWork</Name>
-    <LastWriteTime>2025-04-26T11:51:28.512017Z</LastWriteTime>
+    <LastWriteTime>2025-04-26T12:10:19.344186Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -12,13 +12,13 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>DW fait.dtsx</Name>
-      <LastWriteTime>2025-04-25T20:54:36.5477302Z</LastWriteTime>
+      <Name>dimensions.dtsx</Name>
+      <LastWriteTime>2025-04-26T12:51:35.9378742Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>dimensions.dtsx</Name>
-      <LastWriteTime>2025-04-26T12:02:57.7767408Z</LastWriteTime>
+      <Name>fait.dtsx</Name>
+      <LastWriteTime>2025-04-26T17:52:19.7792994Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
